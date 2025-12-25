@@ -17,7 +17,16 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap');
         body { font-family: 'Noto Sans TC', sans-serif; transition: all 0.5s ease; position: relative; }
-        
+        /* 隱藏 Chrome, Safari 和 Opera 的滾動條 */
+        ::-webkit-scrollbar {
+        display: none;
+                            }
+
+        /* 隱藏 Firefox 和 IE/Edge 的滾動條 */
+        html {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+            }
         /* 背景裝飾球動畫 */
         .blob { position: absolute; filter: blur(80px); opacity: 0.2; z-index: -1; animation: move 20s infinite alternate; }
         @keyframes move { from { transform: translate(0, 0); } to { transform: translate(100px, 100px); } }
