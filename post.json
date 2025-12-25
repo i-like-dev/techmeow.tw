@@ -1,16 +1,8 @@
 [
   {
-    "category": "技術存檔",
-    "title": "TechMeow TW 系統建置紀錄",
-    "description": "本文紀錄了如何使用 Tailwind CSS 與原生 JavaScript 打造具備節日偵測功能的靜態作品集系統。",
-    "tag": "WebDev",
-    "link": "post.html"
-  },
-  {
-    "category": "硬體研究",
-    "title": "2025 智慧家居發展趨勢",
-    "description": "深入探討 Matter 協定如何統一物聯網市場，以及貓咪自動化設備的未來。",
-    "tag": "IoT",
-    "link": "post.html"
+    "category": "關於我們",
+    "title": "聯絡本團隊",
+    "description": "本文可知道如何聯繫本團隊",
+    "tag": "about",
+    "link": "blog/1.html"
   }
-]
