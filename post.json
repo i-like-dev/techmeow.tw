@@ -1,16 +1,16 @@
 [
   {
     "category": "技術存檔",
-    "title": "2025 科技貓開發日誌",
-    "description": "記錄了本站從零到一的建置過程，包含 JSON 動態渲染的邏輯實作。",
-    "tag": "Development",
-    "link": "https://techmeow.tw/blog/1"
+    "title": "TechMeow TW 系統建置紀錄",
+    "description": "本文紀錄了如何使用 Tailwind CSS 與原生 JavaScript 打造具備節日偵測功能的靜態作品集系統。",
+    "tag": "WebDev",
+    "link": "post.html"
   },
   {
     "category": "硬體研究",
-    "title": "智慧家具通訊協定分析",
-    "description": "探討 Matter 與 Zigbee 在 2025 年的應用現況。",
+    "title": "2025 智慧家居發展趨勢",
+    "description": "深入探討 Matter 協定如何統一物聯網市場，以及貓咪自動化設備的未來。",
     "tag": "IoT",
-    "link": "https://techmeow.tw/blog/2"
+    "link": "post.html"
   }
 ]
