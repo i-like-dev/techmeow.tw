@@ -152,37 +152,41 @@
         }
 
         // 4. 加載文章
-        async function loadArchive() {
-            const container = document.getElementById('post-container');
-            const loader = document.getElementById('loader');
-            try {
-                const res = await fetch('./post.json');
-                const data = await res.json();
-                loader.style.display = 'none';
+// 在 index.html 找到 fetch 的地方，確保路徑如下：
+async function loadArchive() {
+    const container = document.getElementById('post-container');
+    const loader = document.getElementById('loader');
+    try {
+        // 強制使用相對路徑讀取同級目錄下的 post.json
+        const res = await fetch('./post.json', { cache: "no-cache" }); 
+        if (!res.ok) throw new Error("Network response was not ok");
+        const data = await res.json();
+        
+        loader.style.display = 'none';
+        container.innerHTML = ''; // 清空加載中文字
 
-                data.forEach(p => {
-                    container.innerHTML += `
-                        <article class="glass-card rounded-[3rem] p-10 flex flex-col group">
-                            <div class="flex justify-between items-start mb-8">
-                                <span class="text-[10px] font-black text-blue-500 px-4 py-2 bg-blue-500/10 rounded-full tracking-widest">${p.category}</span>
-                                <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-500/10 group-hover:bg-blue-500 group-hover:text-white transition-all">
-                                    <i class="fas fa-arrow-right -rotate-45"></i>
-                                </div>
-                            </div>
-                            <h3 class="text-2xl font-black mb-4 leading-tight group-hover:text-blue-500 transition">${p.title}</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-grow">${p.description}</p>
-                            <div class="flex items-center justify-between pt-6 border-t border-gray-500/10">
-                                <span class="text-xs font-mono text-gray-500">#${p.tag}</span>
-                                <a href="${p.link}" class="text-sm font-black text-blue-500 hover:tracking-widest transition-all">READ MORE</a>
-                            </div>
-                        </article>
-                    `;
-                });
-            } catch (err) {
-                loader.innerHTML = `<p class="text-red-500">無法讀取數據庫，請確認 post.json 檔案。</p>`;
-            }
-        }
-
+        data.forEach(p => {
+            container.innerHTML += `
+                <article class="glass-card rounded-[3rem] p-10 flex flex-col h-full group">
+                    <div class="flex justify-between items-start mb-8">
+                        <span class="text-[10px] font-black text-blue-500 px-4 py-2 bg-blue-500/10 rounded-full tracking-widest">${p.category}</span>
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-500/10 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                            <i class="fas fa-arrow-right -rotate-45"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black mb-4 leading-tight group-hover:text-blue-500 transition">${p.title}</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-10 flex-grow">${p.description}</p>
+                    <div class="flex items-center justify-between pt-6 border-t border-gray-500/10">
+                        <span class="text-xs font-mono text-gray-500">#${p.tag}</span>
+                        <a href="${p.link}" class="text-sm font-black text-blue-500 hover:tracking-widest transition-all">READ MORE</a>
+                    </div>
+                </article>
+            `;
+        });
+    } catch (err) {
+        loader.innerHTML = `<p class="text-red-500">數據庫讀取失敗：${err.message}</p>`;
+    }
+}
         window.onload = () => { initHolidays(); loadArchive(); };
     </script>
 </body>
