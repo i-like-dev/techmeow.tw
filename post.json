@@ -6,4 +6,11 @@
     "tag": "about",
     "link": "post/1.html"
   }
+  {
+    "category": "政策",
+    "title": "隱私權政策",
+    "description": "了解本網站之隱私權",
+    "tag": "about",
+    "link": "pravicy.html"
+  }
 ]
